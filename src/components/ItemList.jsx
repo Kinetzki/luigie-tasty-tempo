@@ -5,10 +5,11 @@ import TitleComp from "./TitleComp";
 function ItemList(props) {
   return (
     <div className="p-3 gap-5 flex flex-col w-[60%] mt-[20px] items-center justify-center">
-      <TitleComp text={"Our main dishes"}/>
-      {props.items.map((item) => {
+      <TitleComp text={"Our main dishes"} />
+      {props.items.map((item, i) => {
         return (
           <ListItem
+            key={i}
             title={item.name}
             image={item.image}
             description={item.description}

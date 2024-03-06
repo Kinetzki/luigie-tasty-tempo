@@ -7,6 +7,7 @@ function HighlightCard({ text, image }) {
         <img
           src={image}
           alt=""
+          loading="lazy"
           className="object-cover w-full h-[80%] hover:scale-125 hover:translate-y-[-22px] transition duration-[0.2s]"
         />
         <h1 className="text-[#342628] font-madimi">{text}</h1>

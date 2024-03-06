@@ -17,11 +17,38 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+html {
+  scroll-behavior:smooth;
+}
 .h-screen-60px {
   height: calc(70vh - 60px);
 }
 
 hr {
-  border-top: solid 1px #feaa00;;
+  border-top: solid 1px #feaa00;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+
+.loader {
+  width: 45px;
+  aspect-ratio: 1;
+  --c:no-repeat linear-gradient(#feaa00 0 0);
+  background: var(--c), var(--c), var(--c);
+  animation: 
+    l18-1 1s infinite,
+    l18-2 1s infinite;
+}
+@keyframes l18-1 {
+ 0%,100% {background-size:20% 100%}
+ 33%,66% {background-size:20% 20%}
+}
+@keyframes l18-2 {
+ 0%,33%   {background-position: 0    0,50% 50%,100% 100%}
+ 66%,100% {background-position: 100% 0,50% 50%,0    100%}
 }
