@@ -13,12 +13,21 @@ function Home() {
   const [isLoading, setIsLoading] = useState(true);
   //Preloader
   useEffect(() => {
-    const loadAll = () => {
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 3000);
+    const preloadPage = () => {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve();
+        }, 2000);
+      });
     };
-    loadAll();
+    preloadPage()
+      .then(() => {
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error preloading page:", error);
+        setIsLoading(false);
+      });
   }, []);
 
   return (
@@ -54,7 +63,7 @@ function Home() {
             </div>
           </div>
           <h1 className="font-madimi text-[30px]">
-            We Serve a variety of cravings
+            We Serve a variety of cravings!
           </h1>
           <Loader
             items={["Desserts", "Drinks", "Pasta", "Burgers", "Fries"]}
