@@ -59,6 +59,7 @@ function Home() {
                 {" "}
                 Drinks
               </h1>
+              <br />
               <FuncButton text={"Visit Us"} func={() => {}} />
             </div>
           </div>
