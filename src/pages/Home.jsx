@@ -8,9 +8,13 @@ import pasta from "../assets/pasta";
 import FuncButton from "../components/FuncButton";
 import HorizontalLine from "../components/HorizontalLine";
 import Preloader from "../components/Preloader";
+import drinks from "../assets/drinks";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
   const [isLoading, setIsLoading] = useState(true);
+
+  const navigate = useNavigate();
   //Preloader
   useEffect(() => {
     const preloadPage = () => {
@@ -60,7 +64,7 @@ function Home() {
                 Drinks
               </h1>
               <br />
-              <FuncButton text={"Visit Us"} func={() => {}} />
+              <FuncButton text={"Visit Us"} func={() => {navigate("/contact")}} />
             </div>
           </div>
           <h1 className="font-madimi text-[30px]">
@@ -122,9 +126,15 @@ function Home() {
             drinks.
           </h1>
           <SnackHighlights items={desserts.slice(0, 3)} />
-          <FuncButton text={"More Desserts"} func={() => {}} />
+          <FuncButton text={"More Desserts"} func={() => {
+            navigate("/menu")
+          }} />
+          <br /><br />
+
+          <SnackHighlights items={drinks.slice(0, 3)} />
+          <FuncButton text={"More Drinks"} func={() => {navigate("/menu")}} />
           <ItemList items={pasta.slice(0, 3)} />
-          <FuncButton text={"More Pasta"} func={() => {}} />
+          <FuncButton text={"More Pasta"} func={() => {navigate("/menu")}} />
         </>
       )}
     </div>
